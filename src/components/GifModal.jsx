@@ -1,0 +1,75 @@
+import React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import GifBoxSharpIcon from "@mui/icons-material/GifBoxSharp";
+import { InputBase } from "@mui/material";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  borderRadius: "20px",
+  bgcolor: "#3a3b3c",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+  color: "white",
+  height: 400,
+  overflowY: "scroll",
+};
+
+const GifModal = ({ addClick }) => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [str, setStr] = React.useState("");
+  const [gifData, setGifData] = React.useState([]);
+  const getdata = async (e) => {
+    setStr(e.target.value);
+    let response = await fetch(
+      `https://api.giphy.com/v1/gifs/search?api_key=Q67R2tKlJYK0rf9ulNztWM4RGlObrviy&q=${str}&limit=10&offset=0&rating=g&lang=en`
+    );
+    response = await response.json();
+    setGifData(response.data);
+  };
+
+  return (
+    <div>
+      <Button onClick={handleOpen}>
+        <GifBoxSharpIcon sx={{ color: "white" }} />
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <div>
+            <SearchOutlinedIcon sx={{ fontSize: "medium", color: "white" }} />
+            <InputBase
+              sx={{ ml: 1, flex: 1, color: "white" }}
+              placeholder="Search gif"
+              inputProps={{ "aria-label": "search google maps" }}
+              onChange={getdata}
+            />
+          </div>
+          {gifData.map((pic, i) => {
+            return (
+              <div onClick={() => addClick(pic)} key={i}>
+                <img src={pic.images.original.url} alt="" />;
+                {/* console.log(pic.images.original.url); */}
+              </div>
+            );
+          })}
+        </Box>
+      </Modal>
+    </div>
+  );
+};
+
+export default GifModal;
