@@ -5,6 +5,7 @@ import styled from "styled-components";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import Tooltip from "@mui/material/Tooltip";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import SendIcon from "@mui/icons-material/Send";
 const Comment = styled.p`
   font-size: 1em;
   text-align: left;
@@ -46,6 +47,11 @@ const Post = () => {
       setAllPost([...allpost, str]);
       e.target.value = "";
     }
+  };
+  const handleSend = (e) => {
+    e.preventDefault();
+    setAllPost([...allpost, str]);
+    document.getElementById("commentbox").value = "";
   };
 
   return (
@@ -115,7 +121,7 @@ const Post = () => {
           addClick={addClick}
           handleChange={handleChange}
           handleEnter={handleEnter}
-          // str={str}
+          handleSend={handleSend}
           isActive={isActive}
         />
       </Container>

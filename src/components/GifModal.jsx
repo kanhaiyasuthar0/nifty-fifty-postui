@@ -9,23 +9,23 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  borderRadius: "20px",
-  bgcolor: "#3a3b3c",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-  color: "white",
-  height: 400,
-  overflowY: "scroll",
-};
 
-const GifModal = ({ addClick }) => {
+const GifModal = ({ addClick, isActive }) => {
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 300,
+    borderRadius: "20px",
+    bgcolor: "#3a3b3c",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+    color: "white",
+    height: isActive ? 200 : 300,
+    overflowY: "scroll",
+  };
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -82,8 +82,12 @@ const GifModal = ({ addClick }) => {
           {gifData.map((pic, i) => {
             return (
               <div onClick={() => addClick(pic)} key={i}>
-                <img src={pic.images.original.url} alt="" />;
-                {/* console.log(pic.images.original.url); */}
+                <img
+                  style={{ width: "100%" }}
+                  src={pic.images.original.url}
+                  alt=""
+                />
+                ;{/* console.log(pic.images.original.url); */}
               </div>
             );
           })}
