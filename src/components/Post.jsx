@@ -74,7 +74,11 @@ const Post = () => {
             padding: "20px",
           }}
         >
-          <img style={{ height: "100%" }} src="./codemancers.jpg" alt="" />
+          <img
+            style={{ height: isActive ? "50%" : "100%" }}
+            src="./codemancers.jpg"
+            alt=""
+          />
 
           {allpost.map((comment, i) => {
             return comment.images ? (
