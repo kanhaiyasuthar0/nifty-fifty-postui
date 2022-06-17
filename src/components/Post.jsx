@@ -76,7 +76,7 @@ const Post = () => {
         <Box
           sx={{
             bgcolor: "#383426",
-            height: "80vh",
+            height: "75vh",
             borderRadius: "10px",
             overflowY: "scroll",
             color: "white",

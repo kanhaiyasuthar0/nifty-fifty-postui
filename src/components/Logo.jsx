@@ -4,7 +4,10 @@ const Logo = () => {
   return (
     <div>
       {" "}
-      <i className="devicon-facebook-plain colored"></i>
+      <i
+        style={{ fontSize: "45px" }}
+        className="devicon-facebook-plain colored"
+      ></i>
     </div>
   );
 };
