@@ -81,7 +81,13 @@ const GifModal = ({ addClick, isActive }) => {
           </div>
           {gifData.map((pic, i) => {
             return (
-              <div onClick={() => addClick(pic)} key={i}>
+              <div
+                onClick={() => {
+                  handleClose();
+                  addClick(pic);
+                }}
+                key={i}
+              >
                 <img
                   style={{ width: "100%" }}
                   src={pic.images.original.url}

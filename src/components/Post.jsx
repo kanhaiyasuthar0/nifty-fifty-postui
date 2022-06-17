@@ -5,7 +5,8 @@ import styled from "styled-components";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import Tooltip from "@mui/material/Tooltip";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import SendIcon from "@mui/icons-material/Send";
+
+//Some styled components
 const Comment = styled.p`
   font-size: 1em;
   text-align: left;
@@ -19,21 +20,25 @@ const Image = styled.img`
 `;
 
 const Post = () => {
+  //all the states variable
   const isActive = useMediaQuery("(max-width : 600px");
   const [allpost, setAllPost] = React.useState([]);
   const [str, setStr] = useState("");
 
+  //function to post pic and comment in the post timeline
   function addClick(pic) {
     setAllPost([...allpost, pic]);
   }
   const handleChange = (e) => {
     setStr(e.target.value);
   };
+
+  //Removes gif and comment
   const removeGif = (comment) => {
     let newArr = allpost.filter((item) => {
       return item.id !== comment.id;
     });
-    // allpost.splice(i, 1);
+
     setAllPost([...newArr]);
   };
   const removeComment = (comment) => {
@@ -41,6 +46,8 @@ const Post = () => {
     allpost.splice(i, 1);
     setAllPost([...allpost]);
   };
+
+  //sends when presses enter for the screen 600px and above
   const handleEnter = (e) => {
     if (e.keyCode == 13) {
       e.preventDefault();
@@ -48,6 +55,8 @@ const Post = () => {
       e.target.value = "";
     }
   };
+
+  //sends when presses enter for the screen below 600px
   const handleSend = (e) => {
     e.preventDefault();
     setAllPost([...allpost, str]);
@@ -62,8 +71,6 @@ const Post = () => {
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
-          // justifyItems: "center",
-          //
         }}
       >
         <Box

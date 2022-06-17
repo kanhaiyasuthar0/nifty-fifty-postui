@@ -17,7 +17,6 @@ const CommentInput = ({
       <Paper
         component="form"
         sx={{
-          //   p: "2px 4px",
           display: "flex",
           alignItems: "center",
           width: isActive ? "92.5vw" : "46.5vw",
