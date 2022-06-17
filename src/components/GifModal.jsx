@@ -6,6 +6,9 @@ import Modal from "@mui/material/Modal";
 import GifBoxSharpIcon from "@mui/icons-material/GifBoxSharp";
 import { InputBase } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 const style = {
   position: "absolute",
   top: "50%",
@@ -28,13 +31,24 @@ const GifModal = ({ addClick }) => {
   const handleClose = () => setOpen(false);
   const [str, setStr] = React.useState("");
   const [gifData, setGifData] = React.useState([]);
+
+  const [openbar, setOpenBar] = React.useState(false);
+  const handleCloseBar = () => {
+    setOpenBar(false);
+  };
+  const handleToggleBar = () => {
+    setOpenBar(!openbar);
+  };
+
   const getdata = async (e) => {
+    handleToggleBar();
     setStr(e.target.value);
     let response = await fetch(
       `https://api.giphy.com/v1/gifs/search?api_key=Q67R2tKlJYK0rf9ulNztWM4RGlObrviy&q=${str}&limit=10&offset=0&rating=g&lang=en`
     );
     response = await response.json();
     setGifData(response.data);
+    handleCloseBar();
   };
 
   return (
@@ -57,6 +71,13 @@ const GifModal = ({ addClick }) => {
               inputProps={{ "aria-label": "search google maps" }}
               onChange={getdata}
             />
+            <Backdrop
+              sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open={openbar}
+              onClick={handleCloseBar}
+            >
+              <CircularProgress color="inherit" />
+            </Backdrop>
           </div>
           {gifData.map((pic, i) => {
             return (

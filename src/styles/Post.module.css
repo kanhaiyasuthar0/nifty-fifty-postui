@@ -1,0 +1,12 @@
+.container {
+  background-color: "#383426";
+  height: "80vh";
+  border-radius: "10px";
+  overflow-y: "scroll";
+  color: "white";
+  display: "flex";
+  flex-direction: "column";
+
+  text-align: "left";
+  padding: "20px";
+}
