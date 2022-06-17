@@ -1,3 +1,24 @@
+All information regarding the app: nifty-fifty-post
+
+Description : A facebook post ui which has functionalties like posting comment and also has the search functionalities for giphy using tha API.
+Deployed link : https://nifty-fifty-post.netlify.app/
+Deployed on : Netlify
+
+Stack Used : React, Node, Material UI, Styled Components,
+Responsiveness : DONE.
+Logo : Logo of the facebook is for demo purpose only.
+Duration: Completed within the 1 day.
+Members : Solo project.
+
+Instructions/Features :
+
+1. Search any giphy by clicking on giphy icon and also when you click on it, it will automatically be added to post.
+2. You can type anything in input and click on ENTER to add this to post.
+3. For small devices less than 600px in width they will get the send button to add comment to post.
+4. Website is Completely responsive in nature and also expected to have some more features in future.
+
+Thanks and Enjoy the app.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

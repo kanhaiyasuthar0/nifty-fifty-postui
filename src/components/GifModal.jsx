@@ -43,8 +43,9 @@ const GifModal = ({ addClick, isActive }) => {
   const getdata = async (e) => {
     handleToggleBar();
     setStr(e.target.value);
+    // console.log(process.env.REACT_APP_API_KEY);
     let response = await fetch(
-      `https://api.giphy.com/v1/gifs/search?api_key=Q67R2tKlJYK0rf9ulNztWM4RGlObrviy&q=${str}&limit=10&offset=0&rating=g&lang=en`
+      `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${str}&limit=10&offset=0&rating=g&lang=en`
     );
     response = await response.json();
     setGifData(response.data);

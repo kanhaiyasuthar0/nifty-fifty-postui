@@ -45,9 +45,9 @@ const CommentInput = ({
         />
         <GifModal addClick={addClick} isActive={isActive} />
         <IconButton sx={{ p: "10px", color: "white" }} aria-label="gif">
-          {isActive ? <SendIcon onClick={handleSend}></SendIcon> : null}
           {/* <SearchIcon /> */}
         </IconButton>
+        {isActive ? <SendIcon onClick={handleSend}></SendIcon> : null}
       </Paper>
     </div>
   );
