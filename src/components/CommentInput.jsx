@@ -18,7 +18,7 @@ const CommentInput = ({
           //   p: "2px 4px",
           display: "flex",
           alignItems: "center",
-          width: isActive ? "92.5vw" : "41.5vw",
+          width: isActive ? "92.5vw" : "46.5vw",
 
           background: "#3a3b3c",
           color: "white",
