@@ -22,7 +22,7 @@ function App() {
       <Snackbar
         open={open}
         autoHideDuration={6000}
-        // onClose={handleClose}
+        onClose={!open}
         message="Gif Added Successfully"
         // action={action}
       />

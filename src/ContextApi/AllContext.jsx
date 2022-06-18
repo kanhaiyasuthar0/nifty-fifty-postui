@@ -19,6 +19,10 @@ export function ContextProvider({ children }) {
     setThoughtGif(src);
     // alert("Added successfully. Now please type something to see");
     setOpen(true);
+    let id = setTimeout(() => {
+      setOpen(false);
+      return clearTimeout(id);
+    }, 2000);
   };
   //   let counterId = 0;
   const handleThought = (e) => {
