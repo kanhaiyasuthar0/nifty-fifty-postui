@@ -1,10 +1,12 @@
 import { Box, Container } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import CommentInput from "./CommentInput";
 import styled from "styled-components";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import Tooltip from "@mui/material/Tooltip";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import PostThought from "./PostThought";
+import { Context } from "../ContextApi/AllContext";
 
 //Some styled components
 const Comment = styled.p`
@@ -21,17 +23,18 @@ const Image = styled.img`
 
 const Post = () => {
   //all the states variable
+  // const { setAllPost } = useContext(Context);
   const isActive = useMediaQuery("(max-width : 600px");
   const [allpost, setAllPost] = React.useState([]);
   const [str, setStr] = useState("");
 
   //function to post pic and comment in the post timeline
-  function addClick(pic) {
-    setAllPost([...allpost, pic]);
-  }
-  const handleChange = (e) => {
-    setStr(e.target.value);
-  };
+  // function addClick(pic) {
+  //   setAllPost([...allpost, pic]);
+  // }
+  // const handleChange = (e) => {
+  //   setStr(e.target.value);
+  // };
 
   //Removes gif and comment
   const removeGif = (comment) => {
@@ -47,7 +50,7 @@ const Post = () => {
     setAllPost([...allpost]);
   };
 
-  //sends when presses enter for the screen 600px and above
+  // sends when presses enter for the screen 600px and above
   const handleEnter = (e) => {
     if (e.keyCode == 13) {
       e.preventDefault();
@@ -67,31 +70,35 @@ const Post = () => {
     <div>
       <Container
         sx={{
-          width: isActive ? "100vw" : "50vw",
+          width: isActive ? "100vw" : "35vw",
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
         }}
       >
         <Box
-          sx={{
-            bgcolor: "#383426",
-            height: "75vh",
-            borderRadius: "10px",
-            overflowY: "scroll",
-            color: "white",
-            display: "flex",
-            flexDirection: "column",
-
-            textAlign: "left",
-            padding: "20px",
-          }}
+        // sx={{
+        //   bgcolor: "#3a3b3c",
+        //   height: "0",
+        //   borderRadius: "10px",
+        //   overflowY: "scroll",
+        //   color: "white",
+        //   display: "flex",
+        //   flexDirection: "column",
+        //   // border: "1px solid white",
+        //   textAlign: "left",
+        //   // padding: "20px",
+        // }}
         >
-          <img
-            style={{ height: isActive ? "50%" : "100%" }}
+          {/* <img
+            style={{
+              height: isActive ? "50%" : "50vh",
+              padding: "1px",
+              borderRadius: "20px",
+            }}
             src="./codemancers.jpg"
             alt=""
-          />
+          /> */}
 
           {allpost.map((comment, i) => {
             return comment.images ? (
@@ -124,13 +131,6 @@ const Post = () => {
             );
           })}
         </Box>
-        <CommentInput
-          addClick={addClick}
-          handleChange={handleChange}
-          handleEnter={handleEnter}
-          handleSend={handleSend}
-          isActive={isActive}
-        />
       </Container>
     </div>
   );

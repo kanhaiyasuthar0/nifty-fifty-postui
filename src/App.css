@@ -1,5 +1,7 @@
+@import url("https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css");
 .App {
   text-align: center;
+  background-color: #222222;
 }
 
 .App-logo {
@@ -14,7 +16,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #222222;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,6 +28,35 @@
 
 .App-link {
   color: #61dafb;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2d3748;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3748;
+  border-radius: 20px;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: red;
 }
 
 @keyframes App-logo-spin {

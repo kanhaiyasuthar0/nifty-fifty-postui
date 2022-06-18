@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -9,6 +9,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Context } from "../ContextApi/AllContext";
 
 const GifModal = ({ addClick, isActive }) => {
   const style = {
@@ -26,6 +27,7 @@ const GifModal = ({ addClick, isActive }) => {
     height: isActive ? 200 : 300,
     overflowY: "scroll",
   };
+  const { setThoughtGif } = useContext(Context);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -85,7 +87,8 @@ const GifModal = ({ addClick, isActive }) => {
               <div
                 onClick={() => {
                   handleClose();
-                  addClick(pic);
+                  // addClick(pic);
+                  setThoughtGif(pic.images.original.url);
                 }}
                 key={i}
               >
