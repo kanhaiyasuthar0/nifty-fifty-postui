@@ -27,7 +27,7 @@ const GifModal = ({ addClick, isActive }) => {
     height: isActive ? 200 : 300,
     overflowY: "scroll",
   };
-  const { setThoughtGif } = useContext(Context);
+  const { setThoughtGif, handleGif } = useContext(Context);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -88,7 +88,7 @@ const GifModal = ({ addClick, isActive }) => {
                 onClick={() => {
                   handleClose();
                   // addClick(pic);
-                  setThoughtGif(pic.images.original.url);
+                  handleGif(pic.images.original.url);
                 }}
                 key={i}
               >
@@ -97,7 +97,7 @@ const GifModal = ({ addClick, isActive }) => {
                   src={pic.images.original.url}
                   alt=""
                 />
-                ;{/* console.log(pic.images.original.url); */}
+                {/* console.log(pic.images.original.url); */}
               </div>
             );
           })}

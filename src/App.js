@@ -1,3 +1,4 @@
+import { Snackbar } from "@mui/material";
 import { useContext } from "react";
 import "./App.css";
 import Logo from "./components/Logo";
@@ -7,7 +8,7 @@ import PostThought from "./components/PostThought";
 import { Context } from "./ContextApi/AllContext";
 
 function App() {
-  const { allPost } = useContext(Context);
+  const { allPost, open } = useContext(Context);
 
   return (
     <div className="App">
@@ -18,6 +19,13 @@ function App() {
       {allPost.map((post, i) => {
         return <NewPost key={i} post={post} index={post.id} />;
       })}
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        // onClose={handleClose}
+        message="Gif Added Successfully"
+        // action={action}
+      />
     </div>
   );
 }

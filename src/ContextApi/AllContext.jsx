@@ -9,12 +9,16 @@ export function ContextProvider({ children }) {
   const [thoughtGif, setThoughtGif] = useState("");
   const [commentSTr, setCommentSTr] = useState("");
   const isActive = useMediaQuery("(max-width : 600px");
+  const [open, setOpen] = useState(false);
+
   const handleChange = (e) => {
     setThoughtStr(e.target.value);
   };
   const handleGif = (src) => {
+    // console.log("object");
     setThoughtGif(src);
-    prompt("Added successfully. Now please type something to see");
+    // alert("Added successfully. Now please type something to see");
+    setOpen(true);
   };
   //   let counterId = 0;
   const handleThought = (e) => {
@@ -86,6 +90,7 @@ export function ContextProvider({ children }) {
         handleCommentSend,
         commentSTr,
         isActive,
+        open,
       }}
     >
       {children}
