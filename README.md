@@ -1,3 +1,4 @@
+<img align="right" src="https://i.ibb.co/hyN9m07/ezgif-com-gif-maker.gif" alt=""/>
 All information regarding the app: nifty-fifty-post
 
 Description : A facebook post ui which has functionalties like posting comment and also has the search functionalities for giphy using tha API.
