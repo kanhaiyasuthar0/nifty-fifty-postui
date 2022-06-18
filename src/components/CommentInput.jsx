@@ -67,7 +67,7 @@ const CommentInput = ({
         <IconButton sx={{ p: "10px", color: "white" }} aria-label="gif">
           {/* <SearchIcon /> */}
         </IconButton>
-        {isActive ? <SendIcon onClick={handleSend}></SendIcon> : null}
+        {/* {isActive ? <SendIcon onClick={handleSend}></SendIcon> : null} */}
       </Paper>
     </div>
   );

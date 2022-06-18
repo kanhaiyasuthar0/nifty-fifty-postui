@@ -1,3 +1,4 @@
+import { useMediaQuery } from "@mui/material";
 import { createContext, useContext, useEffect, useState } from "react";
 
 export const Context = createContext();
@@ -7,6 +8,7 @@ export function ContextProvider({ children }) {
   const [thoughtstr, setThoughtStr] = useState("");
   const [thoughtGif, setThoughtGif] = useState("");
   const [commentSTr, setCommentSTr] = useState("");
+  const isActive = useMediaQuery("(max-width : 600px");
   const handleChange = (e) => {
     setThoughtStr(e.target.value);
   };
@@ -82,6 +84,7 @@ export function ContextProvider({ children }) {
         handleCommentChange,
         handleCommentSend,
         commentSTr,
+        isActive,
       }}
     >
       {children}

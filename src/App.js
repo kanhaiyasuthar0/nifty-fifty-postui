@@ -8,6 +8,7 @@ import { Context } from "./ContextApi/AllContext";
 
 function App() {
   const { allPost } = useContext(Context);
+
   return (
     <div className="App">
       <Logo />

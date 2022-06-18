@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { Context } from "../ContextApi/AllContext";
 import CommentInput from "./CommentInput";
 
 const TopBox = styled.div`
@@ -8,7 +9,7 @@ const TopBox = styled.div`
   flex-direction: column;
   align-items: center;
   background: #3a3b3c;
-  width: 31%;
+  width: ${(props) => (props.isActive ? "95%" : "31%")};
   margin: 10px auto;
   border-radius: 10px;
   padding: 5px;
@@ -40,18 +41,13 @@ const TopBox1 = styled.div`
   margin-bottom: 10px;
   padding: 3px;
 `;
-const PostThought = ({
-  addClick,
-  handleChange,
-  handleEnter,
-  handleSend,
-  isActive,
-}) => {
+const PostThought = ({ addClick, handleChange, handleEnter, handleSend }) => {
+  const { isActive } = useContext(Context);
   return (
-    <TopBox>
-      <CommentInput />
+    <TopBox isActive={isActive}>
+      <CommentInput isActive={isActive} />
       <HR />
-      <TopBox1>
+      <TopBox1 isActive={isActive}>
         <EachOpt style={{ margin: "10px" }}>
           <i style={{ color: "red" }} class="fi fi-br-video-camera"></i>{" "}
           <span>Live Video</span>
