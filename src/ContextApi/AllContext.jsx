@@ -14,6 +14,7 @@ export function ContextProvider({ children }) {
   };
   const handleGif = (src) => {
     setThoughtGif(src);
+    prompt("Added successfully. Now please type something to see");
   };
   //   let counterId = 0;
   const handleThought = (e) => {
